@@ -1,4 +1,6 @@
-function ContactController() {
+function ContactController($filter) {
+  var ctrl = this;
+
 	this.contacts = [{
 		name: 'Bill Gates',
 		email: 'bill@microsoft.com',
@@ -20,6 +22,12 @@ function ContactController() {
 		phone: '75934988239',
 		username: 'obama44'
 	}];
+
+  this.refilter = function(){
+    ctrl.filteredList = $filter('filter')(ctrl.contacts,ctrl.search);
+  }
+
+  this.refilter();
 }
 
 angular
